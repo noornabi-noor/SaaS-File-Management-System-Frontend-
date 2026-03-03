@@ -77,9 +77,9 @@ Upload validation errors (size, type, limits) are displayed clearly to users.
 |-----|-------------|
 | `/dashboard` | User dashboard |
 | `/dashboard/overview` | Overview |
-| `/dashboard/browse-tutor` | My Files |
-| `/dashboard/bookings` | Subscription |
-| `/dashboard/reviews` | History |
+| `/dashboard/myfiles` | My Files |
+| `/dashboard/subscription` | Subscription |
+| `/dashboard/history` | History |
 | `/dashboard/profile` | Profile |
 
 ---

@@ -9,6 +9,7 @@ import {
   X,
   Cloud,
 } from "lucide-react";
+import Link from "next/link";
 
 interface UserSidebarProps {
   open: boolean;
@@ -25,8 +26,8 @@ export default function UserSidebar({
 }: UserSidebarProps) {
   const tabs = [
     { key: "dashboard", label: "Dashboard", icon: Home },
-    { key: "files", label: "My Files", icon: Folder },
     { key: "subscription", label: "Subscription", icon: CreditCard },
+    { key: "files", label: "My Files", icon: Folder },
     { key: "history", label: "History", icon: History },
     { key: "profile", label: "Profile", icon: User },
   ];
@@ -56,12 +57,19 @@ export default function UserSidebar({
       >
         {/* Header */}
         <div className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <Cloud className="text-indigo-500" size={26} />
             <h2 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
               CloudNest
             </h2>
-          </div>
+          </div> */}
+
+          <Link href="/" className="flex items-center gap-2 cursor-pointer">
+            <Cloud className="text-indigo-500" size={26} />
+            <h2 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+              CloudNest
+            </h2>
+          </Link>
 
           <X
             className="cursor-pointer md:hidden text-gray-600 dark:text-gray-300"

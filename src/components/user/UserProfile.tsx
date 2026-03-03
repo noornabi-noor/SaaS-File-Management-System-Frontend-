@@ -30,7 +30,8 @@ export default function UserProfile() {
     fetchUser();
   }, []);
 
-  if (loading) return <p className="text-gray-500 dark:text-gray-400">Loading...</p>;
+  if (loading)
+    return <p className="text-gray-500 dark:text-gray-400">Loading...</p>;
   if (!user) return <p className="text-red-500">User not found</p>;
 
   return (
@@ -47,32 +48,33 @@ export default function UserProfile() {
 
         {/* User Info */}
         <div className="flex-1">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{user.name}</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {user.name}
+          </h2>
           <p className="text-gray-600 dark:text-gray-400 mt-1">{user.email}</p>
           {user.createdAt && (
             <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm">
               Member since {new Date(user.createdAt).toLocaleDateString()}
             </p>
           )}
-
-          {/* Edit Profile Button */}
-          <div className="mt-4">
-            <Button className="bg-indigo-500 hover:bg-indigo-600 dark:bg-indigo-600 dark:hover:bg-indigo-700 text-white">
-              Edit Profile
-            </Button>
-          </div>
         </div>
       </div>
 
       {/* Additional sections */}
       <div className="mt-8 grid md:grid-cols-2 gap-6">
         <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Account Details</h3>
-          <p className="text-gray-600 dark:text-gray-400 mt-1">Email: {user.email}</p>
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+            Account Details
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
+            Email: {user.email}
+          </p>
         </div>
 
         <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
-          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Other Info</h3>
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+            Other Info
+          </h3>
           <p className="text-gray-600 dark:text-gray-400 mt-1">
             {/* You can add more user info here */}
             User role: <span className="capitalize">User</span>

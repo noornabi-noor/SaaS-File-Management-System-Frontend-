@@ -3,7 +3,7 @@ import { apiFetch } from "./api";
 export const SubscriptionService = {
   getAll: async () => {
     const res = await apiFetch("/api/subscription");
-    return res; // res should be { success: true, data: [...] }
+    return res; 
   },
 
   getById: async (id: string) => {

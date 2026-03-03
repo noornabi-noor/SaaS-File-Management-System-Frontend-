@@ -1,8 +1,8 @@
 import { apiFetch } from "./api";
 
 export const FolderService = {
-  getUserFolders: (userId: string) =>
-    apiFetch(`/api/folders/${userId}`),
+  getUserFolders: () =>
+    apiFetch(`/api/folders`),
 
   getSingle: (id: string) =>
     apiFetch(`/api/folders/${id}`),

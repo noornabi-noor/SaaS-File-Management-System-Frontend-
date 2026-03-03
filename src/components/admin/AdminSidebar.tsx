@@ -5,7 +5,9 @@ import {
   Package,
   Users,
   X,
+  Cloud,
 } from "lucide-react";
+import Link from "next/link";
 
 interface AdminSidebarProps {
   open: boolean;
@@ -49,11 +51,12 @@ export default function AdminSidebar({
           <X className="cursor-pointer" onClick={() => setOpen(false)} />
         </div>
 
-        <div className="hidden md:block p-5">
-          <h2 className="text-2xl font-bold text-indigo-600">
-            CloudNest
-          </h2>
-        </div>
+        <Link href="/" className="flex items-center gap-2 cursor-pointer">
+            <Cloud className="text-indigo-500" size={26} />
+            <h2 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+              CloudNest
+            </h2>
+          </Link>
 
         <nav className="flex-1 p-5 space-y-4">
           {tabs.map((tab) => {

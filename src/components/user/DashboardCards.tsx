@@ -75,12 +75,12 @@ export default function DashboardCards() {
       setLoading(true);
       try {
         // 1️⃣ Fetch user folders
-        const folders = await FolderService.getUserFolders("me");
+        const folders = await FolderService.getUserFolders();
         const folderArray = Array.isArray(folders) ? folders : [];
         setTotalFolders(folderArray.length);
 
         // 2️⃣ Count total files across all folders
-        let fileCount = 0;
+        let fileCount = 0
         for (const folder of folderArray) {
           const files = await FileService.getFilesInFolder(folder.id);
           const filesArray = Array.isArray(files) ? files : [];
