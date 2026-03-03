@@ -2,7 +2,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const FileService = {
   getFilesInFolder: (folderId: string) =>
-    fetch(`${BASE_URL}/files/folder/${folderId}`, {
+    fetch(`${BASE_URL}/api/files/folder/${folderId}`, {
       credentials: "include",
     }).then(res => res.json()),
 
@@ -11,7 +11,7 @@ export const FileService = {
     formData.append("file", file);
 
     const res = await fetch(
-      `${BASE_URL}/files/upload/${folderId}`,
+      `${BASE_URL}/api/files/upload/${folderId}`,
       {
         method: "POST",
         credentials: "include",
@@ -24,7 +24,7 @@ export const FileService = {
   },
 
   renameFile: (fileId: string, name: string) =>
-    fetch(`${BASE_URL}/files/rename/${fileId}`, {
+    fetch(`${BASE_URL}/api/files/rename/${fileId}`, {
       method: "PATCH",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -32,5 +32,5 @@ export const FileService = {
     }).then(res => res.json()),
 
   downloadFile: (fileId: string) =>
-    window.open(`${BASE_URL}/files/download/${fileId}`, "_blank"),
+    window.open(`${BASE_URL}/api/files/download/${fileId}`, "_blank"),
 };

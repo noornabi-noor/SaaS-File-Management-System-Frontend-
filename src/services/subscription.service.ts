@@ -2,25 +2,25 @@ import { apiFetch } from "./api";
 
 
 export const SubscriptionService = {
-  getAll: () => apiFetch("/subscription"),
+  getAll: () => apiFetch("/api/subscription"),
 
   getById: (id: string) =>
-    apiFetch(`/subscription/${id}`),
+    apiFetch(`/api/subscription/${id}`),
 
   create: (data: any) =>
-    apiFetch("/subscription", {
+    apiFetch("/api/subscription", {
       method: "POST",
       body: JSON.stringify(data),
     }),
 
   update: (id: string, data: any) =>
-    apiFetch(`/subscription/${id}`, {
+    apiFetch(`/api/subscription/${id}`, {
       method: "PATCH",
       body: JSON.stringify(data),
     }),
 
   delete: (id: string) =>
-    apiFetch(`/subscription/${id}`, {
+    apiFetch(`/api/subscription/${id}`, {
       method: "DELETE",
     }),
 };

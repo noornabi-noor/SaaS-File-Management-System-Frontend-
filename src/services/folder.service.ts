@@ -2,25 +2,25 @@ import { apiFetch } from "./api";
 
 export const FolderService = {
   getUserFolders: (userId: string) =>
-    apiFetch(`/folders/${userId}`),
+    apiFetch(`/api/folders/${userId}`),
 
   getSingle: (id: string) =>
-    apiFetch(`/folders/${id}`),
+    apiFetch(`/api/folders/${id}`),
 
   create: (data: any) =>
-    apiFetch("/folders", {
+    apiFetch("/api/folders", {
       method: "POST",
       body: JSON.stringify(data),
     }),
 
   update: (id: string, data: any) =>
-    apiFetch(`/folders/${id}`, {
+    apiFetch(`/api/folders/${id}`, {
       method: "PATCH",
       body: JSON.stringify(data),
     }),
 
   delete: (id: string) =>
-    apiFetch(`/folders/${id}`, {
+    apiFetch(`/api/folders/${id}`, {
       method: "DELETE",
     }),
 };
