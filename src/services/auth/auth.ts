@@ -1,3 +1,4 @@
+// services/auth/auth.ts
 "use server";
 import { cookies } from "next/headers";
 
@@ -12,7 +13,7 @@ export async function getCurrentUser() {
     .map((c) => `${c.name}=${c.value}`)
     .join("; ");
 
-  const res = await fetch(`${API_URL}/api/me`, {
+  const res = await fetch(`${API_URL}/api/user/me`, {
     method: "GET",
     headers: {
       Cookie: cookieHeader, 

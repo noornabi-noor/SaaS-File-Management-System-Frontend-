@@ -1,9 +1,9 @@
 // app/(DashboardLayouts)/dashboard/page.tsx
 
-import { getCurrentUser } from "@/services/auth/auth";
 import { redirect } from "next/navigation";
 import AdminDashboard from "./admin/AdminDashboard";
 import UserDashboard from "./user/UserDashboard";
+import { getCurrentUser } from "@/services/auth/auth";
 
 export default async function DashboardPage() {
   const user = await getCurrentUser();

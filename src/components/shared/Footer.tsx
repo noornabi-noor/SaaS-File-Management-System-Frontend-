@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative mt-10 overflow-hidden">
+    <footer className="relative mt-5 overflow-hidden">
       
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 animate-gradient-x opacity-20 blur-3xl"></div>

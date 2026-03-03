@@ -49,13 +49,6 @@ export async function register(data: {
   return JSON.parse(text);
 }
 
-// export async function loginWithGoogle() {
-//   await authClient.signIn.social({
-//     provider: "google",
-//     callbackURL: "https://skillbridge-frontend-liard.vercel.app/"
-//   });
-// }
-
 export async function logout() {
   const res = await fetch(`/api/auth/sign-out`, {
     method: "POST",

@@ -1,21 +1,22 @@
-import LoginForm from "@/components/auth/login-form";
+import { LoginForm } from "@/components/auth/login-form";
 
 
 // export default function LoginPage() {
 //   return (
-//     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-//       <div className="w-full max-w-sm">
-//         <LoginForm />
-//       </div>
+//     <div className="flex min-h-[calc(100vh-64px)] items-center justify-center p-6">
+//       <LoginForm />
 //     </div>
-//   )
+//   );
 // }
+
 
 
 export default function LoginPage() {
   return (
-    <div className="flex min-h-[calc(100vh-64px)] items-center justify-center p-6">
-      <LoginForm />
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm">
+        <LoginForm />
+      </div>
     </div>
-  );
+  )
 }
