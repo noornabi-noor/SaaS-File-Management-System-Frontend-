@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SaaS File Management System – Frontend  
 
-## Getting Started
+---
 
-First, run the development server:
+## 📌 Project Overview
+This frontend application provides a clean and intuitive user interface for a Subscription-based File & Folder Management SaaS platform.
 
+It allows Admins to manage subscription packages and Users to manage files and folders according to their active subscription limits.
+
+The UI communicates with the backend API and reflects real-time subscription-based restrictions.
+
+---
+
+## Core Features
+### Authentication
+- User Registration
+- User Login
+- Admin Login
+- JWT-based session handling
+
+### Admin Panel
+- View all subscription packages
+- Create new packages
+- Update package limits
+- Delete packages
+Each package includes:
+- Max Folders
+- Max Nesting Level
+- Allowed File Types
+- Max File Size
+- Total File Limit
+- Files Per Folder
+
+### User Dashboard
+- View available subscription packages
+- Select or change active package
+- View subscription history
+
+### Folder Management
+- Create folders
+- Create subfolders
+- Rename folders
+- Delete folders
+- View folder hierarchy
+
+Folder actions are restricted based on the active subscription.
+
+### File Management
+- Upload files (Image, Video, Audio, PDF)
+- View files inside folders
+- Rename files
+- Download files
+- Delete files
+
+Upload validation errors (size, type, limits) are displayed clearly to users.
+ 
+> Admin accounts are created from the backend.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Next.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **Fetch API**
+- **React Hook Form**
+- **Session-based Auth (via backend)**
+
+---
+
+## 📄 Pages & Routes
+
+### 🎒 Student Pages (Protected)
+
+| Route | Description |
+|-----|-------------|
+| `/dashboard` | User dashboard |
+| `/dashboard/overview` | Overview |
+| `/dashboard/browse-tutor` | My Files |
+| `/dashboard/bookings` | Subscription |
+| `/dashboard/reviews` | History |
+| `/dashboard/profile` | Profile |
+
+---
+
+### 🛡️ Admin Pages (Protected)
+
+| Route | Description |
+|-----|-------------|
+| `/dashboard/AdminOverviewData` | Dashboard |
+| `/admin/ManagePackages` | Manage Packages |
+| `/admin/Users` | Users |
+
+---
+
+## 🔐 Authentication Flow
+- Authentication is handled via the backend API
+- Protected routes are guarded on the client side
+- Role-based rendering ensures users only see authorized pages
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+---
+## 🚀 Getting Started
+1️⃣ Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 2️⃣ Run development server
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Frontend will run at:
+```bash
+📍 http://localhost:3000
+```
+--- 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔄 API Integration
 
-## Learn More
+- All data is fetched from the SaaS File Management System Backend API
+- Fetch is used for HTTP requests
+- Error handling and loading states are implemented globally
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---

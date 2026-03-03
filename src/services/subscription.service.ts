@@ -1,26 +1,36 @@
 import { apiFetch } from "./api";
 
-
 export const SubscriptionService = {
-  getAll: () => apiFetch("/api/subscription"),
+  getAll: async () => {
+    const res = await apiFetch("/api/subscription");
+    return res; // res should be { success: true, data: [...] }
+  },
 
-  getById: (id: string) =>
-    apiFetch(`/api/subscription/${id}`),
+  getById: async (id: string) => {
+    const res = await apiFetch(`/api/subscription/${id}`);
+    return res;
+  },
 
-  create: (data: any) =>
-    apiFetch("/api/subscription", {
+  create: async (data: any) => {
+    const res = await apiFetch("/api/subscription", {
       method: "POST",
       body: JSON.stringify(data),
-    }),
+    });
+    return res;
+  },
 
-  update: (id: string, data: any) =>
-    apiFetch(`/api/subscription/${id}`, {
+  update: async (id: string, data: any) => {
+    const res = await apiFetch(`/api/subscription/${id}`, {
       method: "PATCH",
       body: JSON.stringify(data),
-    }),
+    });
+    return res;
+  },
 
-  delete: (id: string) =>
-    apiFetch(`/api/subscription/${id}`, {
+  delete: async (id: string) => {
+    const res = await apiFetch(`/api/subscription/${id}`, {
       method: "DELETE",
-    }),
+    });
+    return res;
+  },
 };

@@ -1,6 +1,14 @@
 "use client";
 
-import { Home, Folder, CreditCard, History, User, X } from "lucide-react";
+import {
+  Home,
+  Folder,
+  CreditCard,
+  History,
+  User,
+  X,
+  Cloud,
+} from "lucide-react";
 
 interface UserSidebarProps {
   open: boolean;
@@ -16,64 +24,91 @@ export default function UserSidebar({
   setActiveTab,
 }: UserSidebarProps) {
   const tabs = [
-    { key: "dashboard", label: "Dashboard", icon: <Home size={18} /> },
-    { key: "files", label: "My Files", icon: <Folder size={18} /> },
-    { key: "subscription", label: "Subscription", icon: <CreditCard size={18} /> },
-    { key: "history", label: "History", icon: <History size={18} /> },
-    { key: "profile", label: "Profile", icon: <User size={18} /> },
+    { key: "dashboard", label: "Dashboard", icon: Home },
+    { key: "files", label: "My Files", icon: Folder },
+    { key: "subscription", label: "Subscription", icon: CreditCard },
+    { key: "history", label: "History", icon: History },
+    { key: "profile", label: "Profile", icon: User },
   ];
 
   return (
     <>
+      {/* Overlay for mobile */}
       {open && (
         <div
           onClick={() => setOpen(false)}
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 md:hidden"
         />
       )}
 
       <aside
         className={`
-          fixed z-50 top-0 left-0 w-64 bg-white dark:bg-black border-r border-gray-200 dark:border-gray-800
+          fixed md:static top-0 left-0 z-50
+          w-64 min-h-screen
+          bg-white dark:bg-neutral-950
+          border-r border-gray-200 dark:border-gray-800
+          shadow-lg md:shadow-none
           transform transition-transform duration-300
-          ${open ? "translate-x-0" : "-translate-x-full"} 
-          md:translate-x-0 md:static
-          flex flex-col min-h-screen
+          ${open ? "translate-x-0" : "-translate-x-full"}
+          md:translate-x-0
+          flex flex-col
         `}
       >
-        <div className="p-5 flex justify-between items-center md:hidden">
-          <h2 className="text-xl font-bold text-indigo-500">CloudNest</h2>
-          <X className="cursor-pointer" onClick={() => setOpen(false)} />
+        {/* Header */}
+        <div className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800">
+          <div className="flex items-center gap-2">
+            <Cloud className="text-indigo-500" size={26} />
+            <h2 className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+              CloudNest
+            </h2>
+          </div>
+
+          <X
+            className="cursor-pointer md:hidden text-gray-600 dark:text-gray-300"
+            onClick={() => setOpen(false)}
+          />
         </div>
 
-        <div className="hidden md:block p-5">
-          <h2 className="text-2xl font-bold text-indigo-500">CloudNest</h2>
-        </div>
-
-        <nav className="flex-1 p-5 space-y-4">
+        {/* Navigation */}
+        <nav className="flex-1 p-4 space-y-2">
           {tabs.map((tab) => {
+            const Icon = tab.icon;
             const isActive = activeTab === tab.key;
+
             return (
-              <div
+              <button
                 key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
+                onClick={() => {
+                  setActiveTab(tab.key);
+                  setOpen(false); // auto close mobile
+                }}
                 className={`
-                  flex items-center gap-3 p-2 rounded-lg cursor-pointer transition
-                  ${isActive
-                    ? "bg-indigo-500 text-white"
-                    : "text-gray-700 dark:text-gray-300 hover:bg-indigo-500/20"
+                  relative w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all
+                  ${
+                    isActive
+                      ? "bg-indigo-600 text-white shadow-md"
+                      : "text-gray-700 dark:text-gray-300 hover:bg-indigo-500/10 dark:hover:bg-indigo-500/20"
                   }
                 `}
               >
-                {tab.icon}
-                <span>{tab.label}</span>
-              </div>
+                {/* Active Left Indicator */}
+                {isActive && (
+                  <span className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-400 rounded-r-md" />
+                )}
+
+                <Icon size={18} />
+                {tab.label}
+              </button>
             );
           })}
         </nav>
 
-        <div className="p-5">
-          <span className="text-sm text-gray-500 dark:text-gray-400">Version 1.0</span>
+        {/* Footer */}
+        <div className="p-4 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex justify-between">
+            <span>CloudNest</span>
+            <span>v1.0.0</span>
+          </div>
         </div>
       </aside>
     </>
